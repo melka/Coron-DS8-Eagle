@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -16577,6 +16577,14 @@ Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <sheets>
 <sheet>
 <plain>
+<text x="-25.4" y="-63.5" size="5.08" layer="91">Power Supply</text>
+<text x="7.62" y="48.26" size="5.08" layer="91">Envelope</text>
+<text x="167.64" y="30.48" size="5.08" layer="91">VCA</text>
+<text x="254" y="5.08" size="5.08" layer="91">Output</text>
+<text x="157.48" y="-111.76" size="5.08" layer="91">Noise</text>
+<text x="149.86" y="-40.64" size="5.08" layer="91">VCO</text>
+<text x="22.86" y="-25.4" size="5.08" layer="91">LFO</text>
+<text x="2.54" y="-121.92" size="5.08" layer="91">Controls</text>
 </plain>
 <instances>
 <instance part="U2" gate="1" x="48.26" y="35.56"/>
