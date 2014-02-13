@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -14677,6 +14677,28 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <rectangle x1="2.921" y1="1.9558" x2="3.4291" y2="3.0989" layer="51"/>
 <rectangle x1="4.191" y1="1.9558" x2="4.6991" y2="3.0989" layer="51"/>
 </package>
+<package name="SOT-23-6">
+<wire x1="1.422" y1="-0.781" x2="-1.423" y2="-0.781" width="0.1524" layer="51"/>
+<wire x1="-1.423" y1="-0.781" x2="-1.423" y2="0.781" width="0.1524" layer="21"/>
+<wire x1="-1.423" y1="0.781" x2="1.422" y2="0.781" width="0.1524" layer="51"/>
+<wire x1="1.422" y1="0.781" x2="1.422" y2="-0.781" width="0.1524" layer="21"/>
+<circle x="-1.15" y="-0.5" radius="0.1" width="0" layer="21"/>
+<smd name="1" x="-0.95" y="-1.15" dx="0.6" dy="0.9" layer="1"/>
+<smd name="2" x="0" y="-1.15" dx="0.6" dy="0.9" layer="1"/>
+<smd name="3" x="0.95" y="-1.15" dx="0.6" dy="0.9" layer="1"/>
+<smd name="4" x="0.95" y="1.15" dx="0.6" dy="0.9" layer="1"/>
+<smd name="5" x="0" y="1.15" dx="0.6" dy="0.9" layer="1"/>
+<smd name="6" x="-0.95" y="1.15" dx="0.6" dy="0.9" layer="1"/>
+<text x="-1.397" y="-2.672" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-1.397" y="1.702" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+<rectangle x1="-1.2" y1="-1.4" x2="-0.7" y2="-0.8" layer="51"/>
+<rectangle x1="-0.25" y1="-1.4" x2="0.25" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="-1.4" x2="1.2" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="0.8" x2="1.2" y2="1.4" layer="51"/>
+<rectangle x1="-0.25" y1="0.8" x2="0.25" y2="1.4" layer="51"/>
+<rectangle x1="-1.2" y1="0.8" x2="-0.7" y2="1.4" layer="51"/>
+<text x="-1.397" y="1.702" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="OTA_WD_N">
@@ -14729,6 +14751,18 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <text x="-4.191" y="-2.667" size="1.778" layer="94">V-</text>
 <pin name="V+" x="-5.08" y="22.86" visible="pad" length="middle" rot="R270"/>
 <pin name="V-" x="-5.08" y="-5.08" visible="pad" length="middle" rot="R90"/>
+</symbol>
+<symbol name="DAC7512">
+<wire x1="-10.16" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<pin name="VOUT" x="-12.7" y="2.54" visible="pin" length="short" direction="out"/>
+<pin name="/SYNC" x="12.7" y="2.54" visible="pin" length="short" rot="R180"/>
+<pin name="GND" x="-12.7" y="0" visible="pin" length="short" direction="pwr"/>
+<pin name="VDD" x="-12.7" y="-2.54" visible="pin" length="short" direction="pwr"/>
+<pin name="SCLK" x="12.7" y="0" visible="pin" length="short" rot="R180"/>
+<pin name="DIN" x="12.7" y="-2.54" visible="pin" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -14783,6 +14817,26 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <connect gate="G$4" pin="OUT" pad="9"/>
 <connect gate="G$5" pin="V+" pad="11"/>
 <connect gate="G$5" pin="V-" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DAC7512">
+<gates>
+<gate name="G$1" symbol="DAC7512" x="33.02" y="-25.4"/>
+</gates>
+<devices>
+<device name="" package="SOT-23-6">
+<connects>
+<connect gate="G$1" pin="/SYNC" pad="6"/>
+<connect gate="G$1" pin="DIN" pad="4"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="SCLK" pad="5"/>
+<connect gate="G$1" pin="VDD" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -17006,8 +17060,13 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="C?" library="rcl" deviceset="C-EU" device="C1206" value="100n"/>
 <part name="C?1" library="rcl" deviceset="C-EU" device="C1206" value="100n"/>
 <part name="R40" library="rcl" deviceset="R-EU_" device="M0805" value="10k"/>
-<part name="C14" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
+<part name="C14" library="rcl" deviceset="C-EU" device="C1206" value="3uF"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
+<part name="GND34" library="supply1" deviceset="GND" device=""/>
+<part name="U$1" library="ds8" deviceset="DAC7512" device=""/>
+<part name="SUPPLY11" library="supply2" deviceset="VCC" device=""/>
+<part name="C15" library="rcl" deviceset="C-EU" device="C1206" value="3uF"/>
+<part name="GND35" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17157,9 +17216,14 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="GND32" gate="1" x="193.04" y="-198.12"/>
 <instance part="C?" gate="G$1" x="213.36" y="-203.2" rot="R90"/>
 <instance part="C?1" gate="G$1" x="213.36" y="-210.82" rot="R90"/>
-<instance part="R40" gate="G$1" x="193.04" y="-185.42" rot="R180"/>
+<instance part="R40" gate="G$1" x="187.96" y="-180.34" rot="R270"/>
 <instance part="C14" gate="G$1" x="248.92" y="-172.72" rot="R180"/>
 <instance part="GND33" gate="1" x="248.92" y="-177.8"/>
+<instance part="GND34" gate="1" x="270.51" y="-93.98"/>
+<instance part="U$1" gate="G$1" x="292.1" y="-91.44"/>
+<instance part="SUPPLY11" gate="G$1" x="276.86" y="-82.55"/>
+<instance part="C15" gate="G$1" x="347.98" y="-132.08" rot="R180"/>
+<instance part="GND35" gate="1" x="347.98" y="-137.16"/>
 </instances>
 <busses>
 </busses>
@@ -17421,6 +17485,15 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <pinref part="C14" gate="G$1" pin="1"/>
 <pinref part="GND33" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="GND34" gate="1" pin="GND"/>
+<wire x1="270.51" y1="-91.44" x2="279.4" y2="-91.44" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C15" gate="G$1" pin="1"/>
+<pinref part="GND35" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -17432,6 +17505,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <pinref part="SUPPLY2" gate="G$1" pin="VCC"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="-10.16" y1="-5.08" x2="-10.16" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="-10.16" y="-17.78"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="OUT"/>
@@ -17488,6 +17562,12 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="231.14" y1="-203.2" x2="218.44" y2="-203.2" width="0.1524" layer="91"/>
 <junction x="231.14" y="-190.5"/>
 </segment>
+<segment>
+<pinref part="SUPPLY11" gate="G$1" pin="VCC"/>
+<wire x1="276.86" y1="-85.09" x2="276.86" y2="-93.98" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VDD"/>
+<wire x1="276.86" y1="-93.98" x2="279.4" y2="-93.98" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$5" class="0">
 <segment>
@@ -17503,6 +17583,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="-5.08" y="-20.32"/>
 <junction x="-10.16" y="-20.32"/>
+<junction x="-10.16" y="-7.62"/>
 </segment>
 </net>
 <net name="S1" class="0">
@@ -18061,6 +18142,11 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <junction x="40.64" y="-165.1"/>
 <label x="43.18" y="-165.1" size="1.4224" layer="95" xref="yes"/>
 </segment>
+<segment>
+<wire x1="279.4" y1="-88.9" x2="266.7" y2="-88.9" width="0.1524" layer="91"/>
+<label x="271.78" y="-86.36" size="1.778" layer="95" rot="R180"/>
+<pinref part="U$1" gate="G$1" pin="VOUT"/>
+</segment>
 </net>
 <net name="LFO2" class="0">
 <segment>
@@ -18195,22 +18281,16 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="218.44" y1="-210.82" x2="233.68" y2="-210.82" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-210.82" x2="233.68" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-175.26" x2="231.14" y2="-175.26" width="0.1524" layer="91"/>
-<pinref part="R40" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="-185.42" x2="187.96" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="-175.26" x2="198.12" y2="-175.26" width="0.1524" layer="91"/>
 <junction x="198.12" y="-175.26"/>
+<pinref part="R40" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VDD@1"/>
 <label x="254" y="-170.18" size="1.778" layer="95"/>
 <wire x1="254" y1="-170.18" x2="264.16" y2="-170.18" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="IC2" gate="G$1" pin="!RESET"/>
-<pinref part="R40" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="-185.42" x2="198.12" y2="-185.42" width="0.1524" layer="91"/>
+<label x="326.39" y="-132.08" size="1.778" layer="95"/>
+<label x="326.39" y="-162.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -18218,6 +18298,74 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <pinref part="IC1" gate="G$1" pin="VDDC@0"/>
 <pinref part="C14" gate="G$1" pin="2"/>
 <wire x1="264.16" y1="-167.64" x2="248.92" y2="-167.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ARM_SSI0_FS" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA3_SSI0FSS"/>
+<wire x1="264.16" y1="-154.94" x2="242.57" y2="-154.94" width="0.1524" layer="91"/>
+<label x="242.57" y="-154.94" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="/SYNC"/>
+<wire x1="304.8" y1="-88.9" x2="321.31" y2="-88.9" width="0.1524" layer="91"/>
+<label x="304.8" y="-88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="SCLK"/>
+<wire x1="304.8" y1="-91.44" x2="321.31" y2="-91.44" width="0.1524" layer="91"/>
+<label x="304.8" y="-91.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ARM_SSI0_CLK" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA2_SSI0CLK"/>
+<wire x1="264.16" y1="-152.4" x2="242.57" y2="-152.4" width="0.1524" layer="91"/>
+<label x="242.57" y="-152.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ARM_SSI0_TX" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="PA5_SSI0TX"/>
+<wire x1="264.16" y1="-160.02" x2="242.57" y2="-160.02" width="0.1524" layer="91"/>
+<label x="242.57" y="-160.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="DIN"/>
+<wire x1="304.8" y1="-93.98" x2="321.31" y2="-93.98" width="0.1524" layer="91"/>
+<label x="304.8" y="-93.98" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="/RESET" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="!RESET"/>
+<pinref part="R40" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="-185.42" x2="187.96" y2="-185.42" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="-185.42" x2="177.8" y2="-185.42" width="0.1524" layer="91"/>
+<label x="177.8" y="-185.42" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="RST"/>
+<wire x1="325.12" y1="-172.72" x2="336.55" y2="-172.72" width="0.1524" layer="91"/>
+<label x="328.93" y="-172.72" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$18" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD@2"/>
+<wire x1="325.12" y1="-162.56" x2="331.47" y2="-162.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$26" class="0">
+<segment>
+<pinref part="C15" gate="G$1" pin="2"/>
+<wire x1="325.12" y1="-127" x2="347.98" y2="-127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD@3"/>
+<wire x1="325.12" y1="-132.08" x2="331.47" y2="-132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
