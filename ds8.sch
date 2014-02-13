@@ -17251,7 +17251,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="P+11" gate="VCC" x="121.92" y="-124.46"/>
 <instance part="VDD6" gate="G$1" x="259.08" y="-129.54"/>
 <instance part="GND38" gate="1" x="254" y="-138.43"/>
-<instance part="GND39" gate="1" x="335.28" y="-132.08"/>
+<instance part="GND39" gate="1" x="336.55" y="-132.08"/>
 <instance part="GND40" gate="1" x="342.9" y="-172.72"/>
 </instances>
 <busses>
@@ -17527,6 +17527,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="264.16" y1="-172.72" x2="256.54" y2="-172.72" width="0.1524" layer="91"/>
 <pinref part="GND36" gate="1" pin="GND"/>
 <wire x1="256.54" y1="-172.72" x2="256.54" y2="-175.26" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="GND@1"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="GNDA"/>
@@ -17543,7 +17544,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="GND@3"/>
 <pinref part="GND39" gate="1" pin="GND"/>
-<wire x1="325.12" y1="-129.54" x2="335.28" y2="-129.54" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="-129.54" x2="336.55" y2="-129.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="GND@2"/>
@@ -17879,9 +17880,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 </net>
 <net name="PAN2" class="0">
 <segment>
-<wire x1="213.36" y1="-81.28" x2="210.82" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="214.63" y1="-81.28" x2="210.82" y2="-81.28" width="0.1524" layer="91"/>
 <wire x1="210.82" y1="-81.28" x2="210.82" y2="-83.82" width="0.1524" layer="91"/>
-<label x="213.36" y="-81.28" size="1.778" layer="95" xref="yes"/>
+<label x="214.63" y="-81.28" size="1.778" layer="95" xref="yes"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -18428,11 +18429,26 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="325.12" y1="-127" x2="347.98" y2="-127" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="VDDC@1"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="201,1,63.5,-35.56,GND,GND\, PAN2\, LFO1,,,,"/>
+<approved hash="201,1,210.82,-83.82,GND,GND\, PAN2\, LFO1,,,,"/>
+<approved hash="202,1,325.12,-142.24,IC1,TDI,,,,"/>
+<approved hash="202,1,325.12,-139.7,IC1,TMS,,,,"/>
+<approved hash="202,1,325.12,-137.16,IC1,TCK,,,,"/>
+<approved hash="208,1,231.14,-185.42,VDD,out,,,,"/>
+<approved hash="208,1,215.9,-175.26,VDD,sup,,,,"/>
+<approved hash="208,1,259.08,-109.22,VDD,sup,,,,"/>
+<approved hash="208,1,256.54,-170.18,VDD,sup,,,,"/>
+<approved hash="208,1,330.2,-162.56,VDD,sup,,,,"/>
+<approved hash="208,1,330.2,-132.08,VDD,sup,,,,"/>
+<approved hash="208,1,259.08,-132.08,VDD,sup,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
