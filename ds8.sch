@@ -12386,6 +12386,20 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="VDD">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.905" x2="0" y2="1.27" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="VCC">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
@@ -12401,30 +12415,23 @@ Source: AVX .. aphvc.pdf</description>
 </device>
 </devices>
 </deviceset>
-</devicesets>
-</library>
-<library name="supply2">
-<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
-GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
-Please keep in mind, that these devices are necessary for the
-automatic wiring of the supply signals.&lt;p&gt;
-The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
-In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="VCC">
-<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
-<text x="-1.905" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="VCC" prefix="SUPPLY">
+<deviceset name="VDD" prefix="VDD">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
-<gate name="G$1" symbol="VCC" x="0" y="0"/>
+<gate name="G$1" symbol="VDD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCC" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="VCC" symbol="VCC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -16951,12 +16958,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="R14" library="rcl" deviceset="R-EU_" device="R0805" value="4.7k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY1" library="supply2" deviceset="VCC" device=""/>
 <part name="D1" library="diode" deviceset="DIODE-" device="MINIMELF" value="4148"/>
 <part name="D2" library="diode" deviceset="DIODE-" device="MINIMELF" value="4148"/>
-<part name="SUPPLY2" library="supply2" deviceset="VCC" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY3" library="supply2" deviceset="VCC" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="rcl" deviceset="CPOL-EU" device="R/2012-12R" value="3.3uF"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="R/2012-12R" value="3.3uF"/>
@@ -16965,7 +16969,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="C101" library="rcl" deviceset="CPOL-EU" device="R/2012-12R" value="10uF"/>
 <part name="U$2" library="vreg-7805-dpak2" deviceset="VREG-7805-DPAK2" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY4" library="supply2" deviceset="VCC" device=""/>
 <part name="C100" library="rcl" deviceset="CPOL-EU" device="D" value="100uF"/>
 <part name="U3" library="seanvoisen" deviceset="LM324" device=""/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="R0805" value="100k"/>
@@ -17007,8 +17010,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="C5" library="rcl" deviceset="C-EU" device="C1206" value="22p"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY5" library="supply2" deviceset="VCC" device=""/>
-<part name="SUPPLY6" library="supply2" deviceset="VCC" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" deviceset="C-EU" device="C1206" value="47n"/>
 <part name="C10" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
@@ -17025,11 +17026,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="ds8" deviceset="LM13700" device="M"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY7" library="supply2" deviceset="VCC" device=""/>
 <part name="U4" library="linear" deviceset="*741" device="D" technology="LM"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="SUPPLY8" library="supply2" deviceset="VCC" device=""/>
-<part name="SUPPLY9" library="supply2" deviceset="VCC" device=""/>
 <part name="RV1" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="PAN" library="SparkFun-Connectors" deviceset="M03" device="PTH" value="50K LIN"/>
@@ -17055,7 +17053,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="IC1" library="TM4" deviceset="TM4C1230C3PM" device=""/>
 <part name="IC2" library="texas" deviceset="TPS773*" device="" technology="33"/>
-<part name="SUPPLY10" library="supply2" deviceset="VCC" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="C?" library="rcl" deviceset="C-EU" device="C1206" value="100n"/>
 <part name="C?1" library="rcl" deviceset="C-EU" device="C1206" value="100n"/>
@@ -17064,9 +17061,30 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="ds8" deviceset="DAC7512" device=""/>
-<part name="SUPPLY11" library="supply2" deviceset="VCC" device=""/>
 <part name="C15" library="rcl" deviceset="C-EU" device="C1206" value="3uF"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
+<part name="GND36" library="supply1" deviceset="GND" device=""/>
+<part name="GND37" library="supply1" deviceset="GND" device=""/>
+<part name="VDD1" library="supply1" deviceset="VDD" device=""/>
+<part name="VDD2" library="supply1" deviceset="VDD" device=""/>
+<part name="VDD3" library="supply1" deviceset="VDD" device=""/>
+<part name="VDD4" library="supply1" deviceset="VDD" device=""/>
+<part name="VDD5" library="supply1" deviceset="VDD" device=""/>
+<part name="P+1" library="supply1" deviceset="VCC" device=""/>
+<part name="P+2" library="supply1" deviceset="VCC" device=""/>
+<part name="P+3" library="supply1" deviceset="VCC" device=""/>
+<part name="P+4" library="supply1" deviceset="VCC" device=""/>
+<part name="P+5" library="supply1" deviceset="VCC" device=""/>
+<part name="P+6" library="supply1" deviceset="VCC" device=""/>
+<part name="P+7" library="supply1" deviceset="VCC" device=""/>
+<part name="P+8" library="supply1" deviceset="VCC" device=""/>
+<part name="P+9" library="supply1" deviceset="VCC" device=""/>
+<part name="P+10" library="supply1" deviceset="VCC" device=""/>
+<part name="P+11" library="supply1" deviceset="VCC" device=""/>
+<part name="VDD6" library="supply1" deviceset="VDD" device=""/>
+<part name="GND38" library="supply1" deviceset="GND" device=""/>
+<part name="GND39" library="supply1" deviceset="GND" device=""/>
+<part name="GND40" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17089,7 +17107,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="R2" gate="G$1" x="2.54" y="27.94" rot="R180"/>
 <instance part="R3" gate="G$1" x="35.56" y="30.48" rot="R270"/>
 <instance part="R4" gate="G$1" x="109.22" y="30.48"/>
-<instance part="R5" gate="G$1" x="-10.16" y="-12.7" rot="R90"/>
+<instance part="R5" gate="G$1" x="-10.16" y="-10.16" rot="R90"/>
 <instance part="R6" gate="G$1" x="-10.16" y="-27.94" rot="R90"/>
 <instance part="R7" gate="G$1" x="5.08" y="-7.62" rot="R180"/>
 <instance part="R8" gate="G$1" x="25.4" y="-7.62" rot="R180"/>
@@ -17101,12 +17119,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="R14" gate="G$1" x="73.66" y="50.8" rot="R180"/>
 <instance part="GND1" gate="1" x="-5.08" y="10.16"/>
 <instance part="GND2" gate="1" x="48.26" y="10.16"/>
-<instance part="SUPPLY1" gate="G$1" x="48.26" y="50.8"/>
 <instance part="D1" gate="G$1" x="22.86" y="38.1"/>
 <instance part="D2" gate="G$1" x="71.12" y="35.56"/>
-<instance part="SUPPLY2" gate="G$1" x="-10.16" y="-2.54"/>
 <instance part="GND3" gate="1" x="-10.16" y="-38.1"/>
-<instance part="SUPPLY3" gate="G$1" x="58.42" y="-50.8"/>
 <instance part="GND4" gate="1" x="58.42" y="-71.12"/>
 <instance part="C1" gate="G$1" x="27.94" y="30.48"/>
 <instance part="C2" gate="G$1" x="78.74" y="27.94"/>
@@ -17115,7 +17130,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="C101" gate="G$1" x="27.94" y="-76.2"/>
 <instance part="U$2" gate="G$1" x="10.16" y="-73.66"/>
 <instance part="GND7" gate="1" x="27.94" y="-88.9"/>
-<instance part="SUPPLY4" gate="G$1" x="27.94" y="-66.04"/>
 <instance part="C100" gate="G$1" x="-5.08" y="-76.2"/>
 <instance part="U3" gate="1" x="137.16" y="15.24"/>
 <instance part="U3" gate="2" x="139.7" y="-63.5"/>
@@ -17157,11 +17171,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="C3" gate="G$1" x="38.1" y="-40.64" rot="R180"/>
 <instance part="GND12" gate="1" x="38.1" y="-48.26"/>
 <instance part="C4" gate="G$1" x="182.88" y="-53.34" rot="R90"/>
-<instance part="C5" gate="G$1" x="185.42" y="-86.36" rot="R90"/>
+<instance part="C5" gate="G$1" x="185.42" y="-86.36" rot="R270"/>
 <instance part="GND13" gate="1" x="124.46" y="-5.08"/>
 <instance part="GND14" gate="1" x="137.16" y="2.54"/>
-<instance part="SUPPLY5" gate="G$1" x="124.46" y="30.48"/>
-<instance part="SUPPLY6" gate="G$1" x="137.16" y="27.94"/>
 <instance part="GND15" gate="1" x="213.36" y="-43.18"/>
 <instance part="C9" gate="G$1" x="203.2" y="-96.52" rot="R270"/>
 <instance part="C10" gate="G$1" x="152.4" y="-93.98" rot="R90"/>
@@ -17182,11 +17194,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="U1" gate="G$4" x="273.05" y="36.83"/>
 <instance part="U1" gate="G$5" x="217.17" y="6.35"/>
 <instance part="GND22" gate="1" x="212.09" y="-7.62"/>
-<instance part="SUPPLY7" gate="G$1" x="212.09" y="34.29"/>
 <instance part="U4" gate="A" x="190.5" y="-121.92"/>
 <instance part="GND23" gate="1" x="187.96" y="-134.62"/>
-<instance part="SUPPLY8" gate="G$1" x="187.96" y="-109.22"/>
-<instance part="SUPPLY9" gate="G$1" x="121.92" y="-124.46"/>
 <instance part="RV1" gate="R?" x="-12.7" y="40.64" rot="R270"/>
 <instance part="GND24" gate="1" x="-12.7" y="30.48"/>
 <instance part="PAN" gate="G$1" x="-55.88" y="-137.16"/>
@@ -17201,7 +17210,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="OUT" gate="G$1" x="58.42" y="-165.1"/>
 <instance part="POWER" gate="G$1" x="-55.88" y="-195.58"/>
 <instance part="GND25" gate="1" x="-20.32" y="-88.9"/>
-<instance part="GND26" gate="1" x="-45.72" y="-200.66"/>
+<instance part="GND26" gate="1" x="-41.91" y="-203.2"/>
 <instance part="SC" gate="G$1" x="83.82" y="-137.16"/>
 <instance part="GND27" gate="1" x="-17.78" y="-172.72"/>
 <instance part="GND20" gate="1" x="-17.78" y="-144.78"/>
@@ -17212,7 +17221,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="GND31" gate="1" x="68.58" y="-172.72"/>
 <instance part="IC1" gate="G$1" x="294.64" y="-144.78"/>
 <instance part="IC2" gate="G$1" x="215.9" y="-187.96"/>
-<instance part="SUPPLY10" gate="G$1" x="238.76" y="-187.96"/>
 <instance part="GND32" gate="1" x="193.04" y="-198.12"/>
 <instance part="C?" gate="G$1" x="213.36" y="-203.2" rot="R90"/>
 <instance part="C?1" gate="G$1" x="213.36" y="-210.82" rot="R90"/>
@@ -17221,9 +17229,30 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <instance part="GND33" gate="1" x="248.92" y="-177.8"/>
 <instance part="GND34" gate="1" x="270.51" y="-93.98"/>
 <instance part="U$1" gate="G$1" x="292.1" y="-91.44"/>
-<instance part="SUPPLY11" gate="G$1" x="276.86" y="-82.55"/>
 <instance part="C15" gate="G$1" x="347.98" y="-132.08" rot="R180"/>
 <instance part="GND35" gate="1" x="347.98" y="-137.16"/>
+<instance part="GND36" gate="1" x="256.54" y="-177.8"/>
+<instance part="GND37" gate="1" x="259.08" y="-115.57"/>
+<instance part="VDD1" gate="G$1" x="215.9" y="-172.72"/>
+<instance part="VDD2" gate="G$1" x="259.08" y="-106.68"/>
+<instance part="VDD3" gate="G$1" x="256.54" y="-167.64"/>
+<instance part="VDD4" gate="G$1" x="330.2" y="-160.02"/>
+<instance part="VDD5" gate="G$1" x="330.2" y="-129.54"/>
+<instance part="P+1" gate="VCC" x="238.76" y="-187.96"/>
+<instance part="P+2" gate="VCC" x="27.94" y="-66.04"/>
+<instance part="P+3" gate="VCC" x="58.42" y="-50.8"/>
+<instance part="P+4" gate="VCC" x="-10.16" y="0"/>
+<instance part="P+5" gate="VCC" x="48.26" y="50.8"/>
+<instance part="P+6" gate="VCC" x="124.46" y="30.48"/>
+<instance part="P+7" gate="VCC" x="137.16" y="27.94"/>
+<instance part="P+8" gate="VCC" x="212.09" y="34.29"/>
+<instance part="P+9" gate="VCC" x="276.86" y="-82.55"/>
+<instance part="P+10" gate="VCC" x="187.96" y="-109.22"/>
+<instance part="P+11" gate="VCC" x="121.92" y="-124.46"/>
+<instance part="VDD6" gate="G$1" x="259.08" y="-129.54"/>
+<instance part="GND38" gate="1" x="254" y="-138.43"/>
+<instance part="GND39" gate="1" x="335.28" y="-132.08"/>
+<instance part="GND40" gate="1" x="342.9" y="-172.72"/>
 </instances>
 <busses>
 </busses>
@@ -17414,8 +17443,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <segment>
 <pinref part="POWER" gate="G$1" pin="2"/>
 <pinref part="GND26" gate="1" pin="GND"/>
-<wire x1="-48.26" y1="-193.04" x2="-45.72" y2="-195.58" width="0.1524" layer="91"/>
-<wire x1="-45.72" y1="-195.58" x2="-45.72" y2="-198.12" width="0.1524" layer="91"/>
+<wire x1="-48.26" y1="-193.04" x2="-41.91" y2="-193.04" width="0.1524" layer="91"/>
+<wire x1="-41.91" y1="-193.04" x2="-41.91" y2="-200.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="DECAY" gate="G$1" pin="2"/>
@@ -17494,18 +17523,45 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <pinref part="C15" gate="G$1" pin="1"/>
 <pinref part="GND35" gate="1" pin="GND"/>
 </segment>
+<segment>
+<wire x1="264.16" y1="-172.72" x2="256.54" y2="-172.72" width="0.1524" layer="91"/>
+<pinref part="GND36" gate="1" pin="GND"/>
+<wire x1="256.54" y1="-172.72" x2="256.54" y2="-175.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="GNDA"/>
+<wire x1="264.16" y1="-111.76" x2="259.08" y2="-111.76" width="0.1524" layer="91"/>
+<pinref part="GND37" gate="1" pin="GND"/>
+<wire x1="259.08" y1="-111.76" x2="259.08" y2="-113.03" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="GND@0"/>
+<wire x1="264.16" y1="-134.62" x2="254" y2="-134.62" width="0.1524" layer="91"/>
+<pinref part="GND38" gate="1" pin="GND"/>
+<wire x1="254" y1="-134.62" x2="254" y2="-135.89" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="GND@3"/>
+<pinref part="GND39" gate="1" pin="GND"/>
+<wire x1="325.12" y1="-129.54" x2="335.28" y2="-129.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="GND@2"/>
+<pinref part="GND40" gate="1" pin="GND"/>
+<wire x1="325.12" y1="-170.18" x2="342.9" y2="-170.18" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="SUPPLY1" gate="G$1" pin="VCC"/>
-<pinref part="U2" gate="1" pin="V+"/>
-<wire x1="48.26" y1="48.26" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="SUPPLY2" gate="G$1" pin="VCC"/>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="-5.08" x2="-10.16" y2="-7.62" width="0.1524" layer="91"/>
-<junction x="-10.16" y="-17.78"/>
+<pinref part="IC2" gate="G$1" pin="IN@1"/>
+<pinref part="IC2" gate="G$1" pin="IN@2"/>
+<wire x1="231.14" y1="-190.5" x2="231.14" y2="-187.96" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="-190.5" x2="231.14" y2="-190.5" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-190.5" x2="231.14" y2="-203.2" width="0.1524" layer="91"/>
+<pinref part="C?" gate="G$1" pin="2"/>
+<wire x1="231.14" y1="-203.2" x2="218.44" y2="-203.2" width="0.1524" layer="91"/>
+<junction x="231.14" y="-190.5"/>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="OUT"/>
@@ -17514,68 +17570,66 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="27.94" y1="-71.12" x2="27.94" y2="-73.66" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="-71.12" x2="27.94" y2="-68.58" width="0.1524" layer="91"/>
 <junction x="27.94" y="-71.12"/>
-<pinref part="SUPPLY4" gate="G$1" pin="VCC"/>
-</segment>
-<segment>
-<pinref part="SUPPLY6" gate="G$1" pin="VCC"/>
-<pinref part="U3" gate="1" pin="V+"/>
-<wire x1="137.16" y1="25.4" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="SUPPLY5" gate="G$1" pin="VCC"/>
-<pinref part="R25" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="27.94" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
-<pinref part="SUPPLY3" gate="G$1" pin="VCC"/>
 <wire x1="60.96" y1="-55.88" x2="58.42" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="-55.88" x2="58.42" y2="-53.34" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<wire x1="-10.16" y1="-2.54" x2="-10.16" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="P+4" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="U2" gate="1" pin="V+"/>
+<wire x1="48.26" y1="48.26" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="P+5" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="R25" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="27.94" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="P+6" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="U3" gate="1" pin="V+"/>
+<wire x1="137.16" y1="25.4" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="P+7" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$5" pin="V+"/>
-<pinref part="SUPPLY7" gate="G$1" pin="VCC"/>
 <wire x1="212.09" y1="29.21" x2="212.09" y2="31.75" width="0.1524" layer="91"/>
+<pinref part="P+8" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="U4" gate="A" pin="V+"/>
-<pinref part="SUPPLY8" gate="G$1" pin="VCC"/>
 <wire x1="187.96" y1="-114.3" x2="187.96" y2="-111.76" width="0.1524" layer="91"/>
+<pinref part="P+10" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="R37" gate="G$1" pin="1"/>
 <pinref part="R39" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="-129.54" x2="121.92" y2="-129.54" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="-129.54" x2="121.92" y2="-134.62" width="0.1524" layer="91"/>
-<pinref part="SUPPLY9" gate="G$1" pin="VCC"/>
 <wire x1="121.92" y1="-127" x2="121.92" y2="-129.54" width="0.1524" layer="91"/>
 <junction x="121.92" y="-129.54"/>
+<pinref part="P+11" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="IN@1"/>
-<pinref part="IC2" gate="G$1" pin="IN@2"/>
-<wire x1="231.14" y1="-190.5" x2="231.14" y2="-187.96" width="0.1524" layer="91"/>
-<pinref part="SUPPLY10" gate="G$1" pin="VCC"/>
-<wire x1="238.76" y1="-190.5" x2="231.14" y2="-190.5" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="-190.5" x2="231.14" y2="-203.2" width="0.1524" layer="91"/>
-<pinref part="C?" gate="G$1" pin="2"/>
-<wire x1="231.14" y1="-203.2" x2="218.44" y2="-203.2" width="0.1524" layer="91"/>
-<junction x="231.14" y="-190.5"/>
-</segment>
-<segment>
-<pinref part="SUPPLY11" gate="G$1" pin="VCC"/>
-<wire x1="276.86" y1="-85.09" x2="276.86" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="VDD"/>
+<wire x1="276.86" y1="-85.09" x2="276.86" y2="-93.98" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="-93.98" x2="279.4" y2="-93.98" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="U2" gate="3" pin="+IN"/>
-<pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="-2.54" y1="-20.32" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="-20.32" x2="-10.16" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="-20.32" x2="-10.16" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-20.32" x2="-10.16" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="-10.16" y1="-22.86" x2="-10.16" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="2"/>
@@ -17583,7 +17637,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="-5.08" y="-20.32"/>
 <junction x="-10.16" y="-20.32"/>
-<junction x="-10.16" y="-7.62"/>
 </segment>
 </net>
 <net name="S1" class="0">
@@ -17687,8 +17740,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 </segment>
 <segment>
 <pinref part="POWER" gate="G$1" pin="1"/>
-<wire x1="-48.26" y1="-195.58" x2="-45.72" y2="-193.04" width="0.1524" layer="91"/>
-<label x="-45.72" y="-193.04" size="1.778" layer="95" xref="yes"/>
+<wire x1="-48.26" y1="-195.58" x2="-39.37" y2="-195.58" width="0.1524" layer="91"/>
+<label x="-39.37" y="-195.58" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -18013,7 +18066,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="198.12" y1="-96.52" x2="195.58" y2="-96.52" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="-96.52" x2="193.04" y2="-96.52" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="-86.36" x2="195.58" y2="-86.36" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="-86.36" x2="195.58" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="-86.36" x2="195.58" y2="-96.52" width="0.1524" layer="91"/>
 <junction x="195.58" y="-96.52"/>
 <wire x1="195.58" y1="-96.52" x2="195.58" y2="-106.68" width="0.1524" layer="91"/>
@@ -18028,7 +18081,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="182.88" y1="-96.52" x2="180.34" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="-96.52" x2="180.34" y2="-86.36" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="-86.36" x2="190.5" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="-96.52" x2="180.34" y2="-124.46" width="0.1524" layer="91"/>
 <junction x="180.34" y="-96.52"/>
 <wire x1="180.34" y1="-96.52" x2="177.8" y2="-96.52" width="0.1524" layer="91"/>
@@ -18112,6 +18164,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="121.92" y1="-147.32" x2="121.92" y2="-144.78" width="0.1524" layer="91"/>
 <pinref part="Q2" gate="G$1" pin="E"/>
 <wire x1="121.92" y1="-147.32" x2="121.92" y2="-149.86" width="0.1524" layer="91"/>
+<junction x="121.92" y="-147.32"/>
 </segment>
 </net>
 <net name="SWEEP2" class="0">
@@ -18270,27 +18323,47 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <pinref part="IC2" gate="G$1" pin="OUT@2"/>
 <wire x1="231.14" y1="-185.42" x2="231.14" y2="-182.88" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="-182.88" x2="231.14" y2="-175.26" width="0.1524" layer="91"/>
-<label x="231.14" y="-170.18" size="1.778" layer="95"/>
 <pinref part="IC2" gate="G$1" pin="FB\SENSE"/>
-<wire x1="231.14" y1="-175.26" x2="231.14" y2="-170.18" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="-182.88" x2="198.12" y2="-182.88" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="-182.88" x2="198.12" y2="-175.26" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="-175.26" x2="231.14" y2="-175.26" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="-175.26" x2="215.9" y2="-175.26" width="0.1524" layer="91"/>
 <junction x="231.14" y="-175.26"/>
 <pinref part="C?1" gate="G$1" pin="2"/>
+<wire x1="215.9" y1="-175.26" x2="231.14" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="-210.82" x2="233.68" y2="-210.82" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-210.82" x2="233.68" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-175.26" x2="231.14" y2="-175.26" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="-175.26" x2="198.12" y2="-175.26" width="0.1524" layer="91"/>
 <junction x="198.12" y="-175.26"/>
 <pinref part="R40" gate="G$1" pin="1"/>
+<junction x="231.14" y="-182.88"/>
+<pinref part="VDD1" gate="G$1" pin="VDD"/>
+<junction x="215.9" y="-175.26"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDDA"/>
+<wire x1="264.16" y1="-109.22" x2="259.08" y2="-109.22" width="0.1524" layer="91"/>
+<pinref part="VDD2" gate="G$1" pin="VDD"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VDD@1"/>
-<label x="254" y="-170.18" size="1.778" layer="95"/>
-<wire x1="254" y1="-170.18" x2="264.16" y2="-170.18" width="0.1524" layer="91"/>
-<label x="326.39" y="-132.08" size="1.778" layer="95"/>
-<label x="326.39" y="-162.56" size="1.778" layer="95"/>
+<wire x1="256.54" y1="-170.18" x2="264.16" y2="-170.18" width="0.1524" layer="91"/>
+<pinref part="VDD3" gate="G$1" pin="VDD"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD@2"/>
+<pinref part="VDD4" gate="G$1" pin="VDD"/>
+<wire x1="325.12" y1="-162.56" x2="330.2" y2="-162.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD@3"/>
+<pinref part="VDD5" gate="G$1" pin="VDD"/>
+<wire x1="325.12" y1="-132.08" x2="330.2" y2="-132.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD@0"/>
+<pinref part="VDD6" gate="G$1" pin="VDD"/>
+<wire x1="264.16" y1="-132.08" x2="259.08" y2="-132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -18343,6 +18416,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <wire x1="203.2" y1="-185.42" x2="187.96" y2="-185.42" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="-185.42" x2="177.8" y2="-185.42" width="0.1524" layer="91"/>
 <label x="177.8" y="-185.42" size="1.778" layer="95"/>
+<junction x="187.96" y="-185.42"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="RST"/>
@@ -18350,22 +18424,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps77333.pdf</description>
 <label x="328.93" y="-172.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="VDD@2"/>
-<wire x1="325.12" y1="-162.56" x2="331.47" y2="-162.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$26" class="0">
+<net name="N$36" class="0">
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="325.12" y1="-127" x2="347.98" y2="-127" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$35" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="VDD@3"/>
-<wire x1="325.12" y1="-132.08" x2="331.47" y2="-132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -10862,6 +10862,14 @@ Source: VISHAY wscwsn.pdf</description>
 <pin name="SCLK" x="12.7" y="0" visible="pin" length="short" rot="R180"/>
 <pin name="DIN" x="12.7" y="-2.54" visible="pin" length="short" rot="R180"/>
 </symbol>
+<symbol name="SUPPLY3_VDD">
+<circle x="0" y="3.81" radius="1.27" width="0.254" layer="94"/>
+<pin name="VDD" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="SUPPLY4_VDDC">
+<circle x="0" y="3.81" radius="1.27" width="0.254" layer="94"/>
+<pin name="VDDC" x="0" y="0" visible="pin" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="SPARKFUN-CONNECTORS_M02" prefix="JP">
@@ -14280,6 +14288,30 @@ Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connect gate="G$1" pin="VDD" pad="3"/>
 <connect gate="G$1" pin="VOUT" pad="1"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SUPPLY3_VDD">
+<gates>
+<gate name="G$1" symbol="SUPPLY3_VDD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SUPPLY4_VDDC">
+<gates>
+<gate name="G$1" symbol="SUPPLY4_VDDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
 <technologies>
 <technology name=""/>
 </technologies>
