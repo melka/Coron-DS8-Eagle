@@ -18863,6 +18863,30 @@ Siemens, Hewlett-Packard, Texas Instuments, Sharp, Motorola&lt;p&gt;
 <label x="242.57" y="-147.32" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="SWCLK" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="TCK"/>
+<wire x1="325.12" y1="-137.16" x2="335.28" y2="-137.16" width="0.1524" layer="91"/>
+<label x="326.39" y="-137.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="1"/>
+<wire x1="45.72" y1="-198.12" x2="53.34" y2="-198.12" width="0.1524" layer="91"/>
+<label x="43.18" y="-198.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SWDIO" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="TMS"/>
+<wire x1="325.12" y1="-139.7" x2="335.28" y2="-139.7" width="0.1524" layer="91"/>
+<label x="326.39" y="-139.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="3"/>
+<wire x1="15.24" y1="-198.12" x2="5.08" y2="-198.12" width="0.1524" layer="91"/>
+<label x="5.08" y="-198.12" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
