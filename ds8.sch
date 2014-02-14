@@ -18857,11 +18857,12 @@ Siemens, Hewlett-Packard, Texas Instuments, Sharp, Motorola&lt;p&gt;
 <net name="MIDI_IN" class="0">
 <segment>
 <pinref part="OK1" gate="G$1" pin="VO"/>
-<wire x1="93.98" y1="-205.74" x2="109.22" y2="-205.74" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="-205.74" x2="114.3" y2="-205.74" width="0.1524" layer="91"/>
 <pinref part="R42" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="-205.74" x2="109.22" y2="-200.66" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="-200.66" x2="114.3" y2="-200.66" width="0.1524" layer="91"/>
 <label x="109.22" y="-200.66" size="1.778" layer="95"/>
+<wire x1="114.3" y1="-205.74" x2="114.3" y2="-200.66" width="0.1524" layer="91"/>
+<junction x="114.3" y="-200.66"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PA0_U0RX"/>
