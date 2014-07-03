@@ -9,3 +9,6 @@ http://m.bareille.free.fr/ds7clone/ds8_rev1_wiring1.gif
 
 Original schematics:
 http://m.bareille.free.fr/ds7clone/ds8_schem_rev1.pdf
+
+### TODO
+*   Add diode on power supply for reverse protection.
